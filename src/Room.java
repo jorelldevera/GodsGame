@@ -11,4 +11,9 @@ public abstract class Room {
         this.desc = desc;
         this.type = type;
     }
+
+    public Room (String name, Globals.RoomType type) {
+        this.name = name;
+        this.type = type;
+    }
 }
