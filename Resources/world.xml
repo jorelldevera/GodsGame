@@ -28,17 +28,68 @@
         <description>
             Water realm
         </description>
+        <rooms>
+            <room name="Battle Room 1" type="BATTLE">
+
+            </room>
+            <room name="Pots Room" type="POTS">
+
+            </room>
+            <room name="Battle Room 2" type="BATTLE">
+
+            </room>
+            <room name="Shop" type="SHOP">
+
+            </room>
+            <room name="Puzzle" type="PUZZLE">
+
+            </room>
+        </rooms>
     </realm>
     <realm name="Kapife" level="3">
         <neighbor name="Lahon"/>
         <description>
             Air realm
         </description>
+        <rooms>
+            <room name="Battle Room 1" type="BATTLE">
+
+            </room>
+            <room name="Pots Room" type="POTS">
+
+            </room>
+            <room name="Battle Room 2" type="BATTLE">
+
+            </room>
+            <room name="Shop" type="SHOP">
+
+            </room>
+            <room name="Puzzle" type="PUZZLE">
+
+            </room>
+        </rooms>
     </realm>
     <realm name="Lahon" level="4">
         <neighbor name="null"/>
         <description>
             Fire realm
         </description>
+        <rooms>
+            <room name="Battle Room 1" type="BATTLE">
+
+            </room>
+            <room name="Pots Room" type="POTS">
+
+            </room>
+            <room name="Battle Room 2" type="BATTLE">
+
+            </room>
+            <room name="Shop" type="SHOP">
+
+            </room>
+            <room name="Puzzle" type="PUZZLE">
+
+            </room>
+        </rooms>
     </realm>
 </world>
