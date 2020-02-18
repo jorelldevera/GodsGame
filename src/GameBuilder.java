@@ -6,6 +6,7 @@ import org.w3c.dom.*;
 public class GameBuilder {
 
     private Document doc;
+    private int roomnum = 1;
 
     public GameBuilder() throws ParserConfigurationException {
         this.setDocFromFile();
@@ -21,7 +22,8 @@ public class GameBuilder {
             this.doc = db.parse(Globals.KINGDOM_XML);
         } catch (Exception e) {
             System.out.println("ERROR: XML parse of file " + Globals.KINGDOM_XML);
-            System.exit(0);
+            e.printStackTrace();
+            System.exit(-1);
         }
     }
 
@@ -44,6 +46,8 @@ public class GameBuilder {
             // add realm to list
             kingdom.add(r);
         }
+
+        return kingdom;
     }
 
     private ArrayList<Room> getRooms(Element realmElement) {
@@ -53,13 +57,30 @@ public class GameBuilder {
         for (int i = 0; i < roomList.getLength(); i++) {
             Node roomNode = roomList.item(i);
             Element roomElement = (Element) roomNode;
-
             // building new room
-            // Room r = new Room(roomElement.getAttribute("name"), /* description */, Globals.stringToRoomType(realmElement.getAttribute("type")));
-            Room r = new Room(roomElement.getAttribute("name"), Globals.stringToRoomType(realmElement.getAttribute("type")));
+            Room r = null;
+            Globals.RoomType type = Globals.stringToRoomType(roomElement.getAttribute("type"));
+            String name = roomElement.getAttribute("name");
+            switch (type) {
+                case BATTLE:
+                    r = new BattleRoom(name, type, roomnum);
+                    break;
+                case SHOP:
+                    r = new ShopRoom(name, type, roomnum);
+                    break;
+                case POTS:
+                    r = new PotsRoom(name, type, roomnum);
+                    break;
+                case PUZZLE:
+                    r = new PuzzleRoom(name, type, roomnum);
+                    break;
+            }
 
             // add room to list
             rooms.add(r);
+            roomnum++;
         }
+
+        return rooms;
     }
 }

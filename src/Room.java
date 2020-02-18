@@ -5,6 +5,7 @@ public abstract class Room {
     private String name;
     private String desc;
     private Globals.RoomType type; // BATTLE, SHOP, PUZZLE, or POTS
+    private int number; // each room has a number
 
     public Room (String name, String desc, Globals.RoomType type) {
         this.name = name;
@@ -12,8 +13,9 @@ public abstract class Room {
         this.type = type;
     }
 
-    public Room (String name, Globals.RoomType type) {
+    public Room (String name, Globals.RoomType type, int number) {
         this.name = name;
         this.type = type;
+        this.number = number;
     }
 }

@@ -12,8 +12,9 @@ public class Globals {
     public static String PLAYER_NAME;
 
     /* CONSTANTS */
-    public static String KINGDOM_XML = "world.xml";
+    public static String KINGDOM_XML = "Resources/world.xml";
     public static String KINGDOM_NAME = "Egypt";
+    public static int NUM_REALMS = 4;
 
     /**
      * Determines each type of room
@@ -30,20 +31,18 @@ public class Globals {
         switch (roomType) {
             case "BATTLE":
                 return RoomType.BATTLE;
-                break;
             case "SHOP":
                 return RoomType.SHOP;
-                break;
             case "PUZZLE":
                 return RoomType.PUZZLE;
-                break;
             case "POTS":
                 return RoomType.POTS;
-                break;
             default:
-                System.out.println("ERROR stringToRoomType: invalid input");
-                System.exit(0);
+                System.out.println("ERROR stringToRoomType: invalid input: \"" + roomType + "\"");
+                System.exit(-1);
         }
+
+        return null;
     }
 
     public static Globals getInstance() {
