@@ -11,8 +11,32 @@ public class Realm {
         this.level = level;
     }
 
+    public int getLevel() {
+        return level;
+    }
+
     public ArrayList<Room> getRooms() {
         return rooms;
+    }
+
+    public Room getRoom(int roomnum) {
+        for (Room room: rooms) {
+            if (room.getNumber() == roomnum) {
+                return room;
+            }
+        }
+
+        return null;
+    }
+
+    public boolean isRoomNumInRealm(int roomnum) {
+        for (Room room: rooms) {
+            if (room.getNumber() == roomnum) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public void setRooms(ArrayList<Room> rooms) {

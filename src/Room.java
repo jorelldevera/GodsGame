@@ -18,4 +18,8 @@ public abstract class Room {
         this.type = type;
         this.number = number;
     }
+
+    public int getNumber() {
+        return number;
+    }
 }
